@@ -1,57 +1,49 @@
 package poker
 
 import org.scalatest.{Matchers, WordSpec}
-import poker.com.fun.poker.Card
+import poker.com.fun.poker._
 
 class PokerSpec extends WordSpec with Matchers {
 
   "A card" should {
     "return its value" when {
       "given a valid card value" in {
-        val myCard = Card("4", "C")
+        val myCard = Card(Four, Clubs)
 
-        myCard.value shouldBe "4"
+        myCard.value shouldBe Four
       }
-      "given a valid card value as A" in {
-        val card = Card("A", "C")
+      "given a valid card value as Ace" in {
+        val card = Card(Ace, Clubs)
 
-        card.value shouldBe "A"
+        card.value shouldBe Ace
       }
     }
 
-    "return the correct full suite name" when {
-      "given the short name of C" in {
-        val card = Card("4", "C")
-        card.suite shouldBe "Club"
+    "return the correct full suit name" when {
+      "given the name of Clubs" in {
+        val card = Card(Four, Clubs)
+        card.suit shouldBe Clubs
       }
-      "given the short name of H" in {
-        val card = Card("4", "H")
-        card.suite shouldBe "Hearts"
+      "given the name of Hearts" in {
+        val card = Card(Four, Hearts)
+        card.suit shouldBe Hearts
       }
-      "given the short name of S" in {
-        val card = Card("5", "S")
-        card.suite shouldBe "Spades"
+      "given the name of Spades" in {
+        val card = Card(Five, Spades)
+        card.suit shouldBe Spades
       }
-      "given the short name of D" in {
-        val card = Card("2", "D")
-        card.suite shouldBe "Diamonds"
+      "given the short name of Diamonds" in {
+        val card = Card(Two, Diamonds)
+        card.suit shouldBe Diamonds
       }
     }
 
-    "throw an exception" when {
-      "Given a bad suit short name" in {
-        val exception = the[IllegalArgumentException] thrownBy Card("3", "Z")
+/*    "throw an exception" when {
+      "Given a bad suit name" in {
+        val exception = the[IllegalArgumentException] thrownBy Card(Three, "Z")
         exception.getMessage shouldBe "Invalid suit value"
       }
-      "Given a wrong card value" in {
-        val exception = the[IllegalArgumentException] thrownBy Card("1", "H")
-        exception.getMessage shouldBe "Invalid card value"
-      }
-      "Given a wrong card value as 11" in {
-        val exception = the[IllegalArgumentException] thrownBy Card("11", "H")
-        exception.getMessage shouldBe "Invalid card value"
-      }
 
-    }
+    }*/
   }
 }
