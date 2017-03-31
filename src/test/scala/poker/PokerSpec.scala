@@ -37,13 +37,5 @@ class PokerSpec extends WordSpec with Matchers {
         card.suit shouldBe Diamonds
       }
     }
-
-/*    "throw an exception" when {
-      "Given a bad suit name" in {
-        val exception = the[IllegalArgumentException] thrownBy Card(Three, "Z")
-        exception.getMessage shouldBe "Invalid suit value"
-      }
-
-    }*/
   }
 }
