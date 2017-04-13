@@ -30,6 +30,7 @@ class DeckSpec extends WordSpec with Matchers {
       deck.size - secondRemainingDeck.size shouldBe 2
     }
 
+
     "deal a hand of 5 cards" in {
       val (hand, _) = Deck.createDeck.dealHand
       hand.cards.size shouldBe 5
