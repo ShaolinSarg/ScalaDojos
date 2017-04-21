@@ -2,8 +2,23 @@ package poker.com.fun.poker
 
 import poker.Hand
 
+import scala.annotation.tailrec
+
 case class Deck (cards : Set[Card]) {
-  def dealHand: (Hand, Deck) = (Hand(cards.take(5)), Deck(cards.drop(5)))
+  def dealHand: (Hand, Deck) = {
+
+    @tailrec
+    def rec(totalCards: Set[Card], deck: Deck): (Hand,Deck) ={
+      totalCards.size match {
+        case x if x < 5 =>
+          val (card,remainingDeck) = deck.dealCard
+          rec(totalCards + card, remainingDeck)
+        case _ => (Hand(totalCards),deck)
+      }
+    }
+
+    rec(Set(), this)
+  }
 
   val size = cards.size
 
