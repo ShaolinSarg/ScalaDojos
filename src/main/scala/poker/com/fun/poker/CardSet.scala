@@ -3,6 +3,8 @@ package poker
 
 import poker.com.fun.poker._
 
+import scala.annotation.tailrec
+
 
 case class CardSet(cards: Set[Card]) {
   def getPairs: Set[Set[Card]] = {
