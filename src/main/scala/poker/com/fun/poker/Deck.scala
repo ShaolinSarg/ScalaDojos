@@ -1,9 +1,9 @@
 package poker.com.fun.poker
 
-import poker.Hand
+import poker.CardSet
 
 case class Deck (cards : Set[Card]) {
-  def dealHand: (Hand, Deck) = (Hand(cards.take(5)), Deck(cards.drop(5)))
+  def dealHand: (CardSet, Deck) = (CardSet(cards.take(5)), Deck(cards.drop(5)))
 
   val size = cards.size
 
