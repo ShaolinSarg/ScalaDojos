@@ -18,7 +18,7 @@ case class CardSet(cards: Set[Card]) {
 }
 
 object CardSet {
-  def highHand(hand1: CardSet, hand2: CardSet) = {
+  def highHand(hand1: CardSet, hand2: CardSet): CardSet = {
 
     @tailrec
     def go(firstHand: CardSet, secondHand: CardSet): CardSet = {
